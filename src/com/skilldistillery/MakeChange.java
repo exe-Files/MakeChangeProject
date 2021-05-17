@@ -106,7 +106,7 @@ public class MakeChange {
 		else {
 			System.out.println("That's not correct, please try again");
 		}
-	
+		kb.close();
 	}
 	
 	

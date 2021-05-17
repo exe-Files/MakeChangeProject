@@ -36,57 +36,57 @@ public class MakeChange {
 				//fit into the tender amount leftover without having to call Math.floor()
 				counter = (int) (tender / 20);
 				change = counter + " twenty dollar bill";				
+				tender = tender % 20;
 				plural();
 				addComma();
-				tender = tender % 20;
 			}
 			
 			if (tender / 10 > 1.00) {
 				counter = (int) (tender / 10);
 				change += counter + " ten dollar bill";
+			  tender = tender % 10;
 				plural();
 				addComma();
-			  	tender = tender % 10;
 			}
 			
 			if (tender / 5 > 1.00) {
 				counter = (int) (tender / 5);
 				change += counter + " five dollar bill";
+				tender = tender % 5;
 				plural();
 				addComma();
-				tender = tender % 5;
 			}
 			
 			if (tender / 1 > 1.00) {
 				counter = (int) (tender / 1);
 				change += counter + " one dollar bill";
+				tender = tender % 1;
 				plural();
 				addComma();
-				tender = tender % 1;
 			}
 			
 			if (tender / .25 > 1.00) {
 				counter = (int) (tender / .25);
 				change += counter + " quarter"; 
+				tender = tender % .25;
 				plural();
 				addComma();
-				tender = tender % .25;
 			}
 			
 			if (tender / .10 > 1.00) {
 				counter = (int) (tender / .10);
 				change += counter + " dime"; 
+				tender = tender % .10;
 				plural();
 				addComma();
-				tender = tender % .10;
 			}
 			
 			if (tender / .05 > 1.00) {
 				counter = (int) (tender / .05);
 				change += counter + " nickel"; 
+				tender = tender % .05;
 				plural();
 				addComma();
-				tender = tender % .05;
 			}
 			
 			if (tender / .01 > 1.00) {
@@ -117,10 +117,11 @@ public class MakeChange {
 	}
 	
 	public static void addComma() {
-		if (tender > 0.0099) {	
-			//checking for values above .009 will ensure that all change is accounted for
+		if ((int)(tender * 100) > 0) {	
+			//by multiplying and checking for values above 0 as an int, it will ensure that all change is accounted for
 			change += ", ";
-			System.out.println(tender);
+			//System.out.println(tender);
+			
 		}
 	}
 	
